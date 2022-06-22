@@ -17,4 +17,14 @@ class Cocina {
 	method comidasQueLeGustanA(unComensal) = comidasQueTiene.filter({ c => unComensal.leAgrada(c) })
 	
 	method cualquierComida() = comidasQueTiene.anyOne()
+	
+	method siLeGustaAlComensalSeLoCome(unComensal) {
+		if(unComensal.leAgrada(self.cualquierComida())){
+		  comidasQueTiene.remove(self.cualquierComida())
+		  unComensal.comer(self.cualquierComida())
+		}else{
+			self.error("Al comensal no le gusta ninguna comida de la cocina")  
+		}
+		  
+	}
 }
