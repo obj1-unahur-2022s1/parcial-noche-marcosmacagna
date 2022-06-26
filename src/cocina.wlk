@@ -1,3 +1,7 @@
+/*
+ * 1) En el Bonus de ```siLeGustaAlComensalSeLoCome()``` tenias que guardate la variable que te devolvia ```cualquierComida()```. En tu código al llamar 3 veces a este método te puede devolver un plato distinto en cada llamado. 
+ 
+ */
 import comidas.*
 import comensales.*
 
