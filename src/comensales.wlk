@@ -1,3 +1,7 @@
+/*
+1) Recordá que podes unar el mensaje x.even() a un número para saber si es par en lugar de usar la funcion modulo de 2  (x % 2)
+2) Quizás en este enunciado los más adecuado hubiera sido colocar los métodos ```ningunaComidaEsAbundante()``` en Vegetariano y ```comidasIngeridasEsPar() ``` en PaladarFino 
+ */
 import comidas.*
 
 class Comensales {

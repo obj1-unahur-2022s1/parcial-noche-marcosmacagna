@@ -1,3 +1,9 @@
+/*
+1) Para esté modelo lo más adecuado era que los panes sean objetos con nombre propio en lugar de clases. "Los tres únicos panes..." la clave en el enunciado esta en la palabra únicos.
+2) En Plato debía tener el método abstracto ```peso()```
+3) En Plato el método ```esAbundante()``` convenia que sea concreto y que tenga el codigo self.peso()
+ */
+
 class Pan {
 	method valoracion()
 }
@@ -16,11 +22,13 @@ class MasaMadre inherits Pan {
 
 class Plato {
 	
+	method peso()
+	
 	method valoracion()
 	
 	method aptoVegetariano()
 	
-	method esAbundante()
+	method esAbundante()= self.peso() > 250
 } 
 
 
@@ -35,18 +43,17 @@ class Provoleta inherits Plato{
 	
 	override method valoracion() = if(self.esEspecial()) 120 else 80
 	
-	override method esAbundante() = peso > 250
 }
 
 class HamburguesaDeCarne inherits Plato{
-	const property peso = 250
 	const property pan  
+	
+	override method peso() = 250
 	
 	override method aptoVegetariano() = false
 	
 	override method valoracion() = 60 + pan.valoracion()
-	
-	override method esAbundante() = peso > 250
+
 }
 
 class HamburguesaVegana inherits HamburguesaDeCarne {
@@ -71,7 +78,7 @@ class Parrillada inherits Plato{
 	
 	method agregarCorte(unCorte) = pedidos.add(unCorte)
 	
-	method peso() = pedidos.sum({ p => p.peso() })
+	override method peso() = pedidos.sum({ p => p.peso() })
 	
 	override method aptoVegetariano() = false
 	
@@ -81,5 +88,4 @@ class Parrillada inherits Plato{
 	
 	override method valoracion() = 0.max((15 * self.maximaCalidad()) - self.cantidadDeCortes())
 	
-	override method esAbundante() = self.peso() > 250
 }
